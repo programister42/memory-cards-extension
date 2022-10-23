@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MemoryCards Extension</title>
+</head>
+<body>
+<section id="signedOut">
+    <h1>Please Sign In!</h1>
+    <button id="signIn">Sign In with Google</button>
+</section>
+<section id="signedIn" hidden>
+    <h1>Hello, <span id="user-name"></span>!</h1>
+    <button id="signOut">Sign Out</button>
+    <ul id="test-list"></ul>
+    <form id="new-test-item-form">
+        <input type="text" name="word" placeholder="word to add">
+        <input type="submit" value="add">
+    </form>
+</section>
+<script type="module" src="index.js"></script>
+</body>
+</html>
