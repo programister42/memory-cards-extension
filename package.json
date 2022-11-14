@@ -1,12 +1,11 @@
 {
   "name": "memory-cards-extension",
-  "version": "0.0.1",
+  "version": "1.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "webpack --watch --config webpack.development.js",
+    "release": "webpack --config webpack.production.js"
   },
   "repository": {
     "type": "git",
@@ -15,9 +14,14 @@
   "author": "programister42",
   "license": "MIT",
   "dependencies": {
-    "firebase": "^9.12.1"
+    "firebase": "^9.13.0",
+    "firebaseui": "^6.0.1"
   },
   "devDependencies": {
-    "vite": "^3.1.0"
+    "webpack-merge": "^5.8.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   }
 }
