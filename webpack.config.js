@@ -8,11 +8,27 @@ module.exports = {
     popup: "./src/popup/popup.js",
     options: "./src/options/options.js",
     background: "./src/background/background.js",
+    content: "./src/content/content.js",
   },
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "docs"),
     clean: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -28,10 +44,8 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: "./src/manifest.json" },
-        // { from: "./src/background/background.js" },
-        { from: "./src/content/content.js" },
         { from: "./src/icons/*" },
-        { from: "./src/css/*" },
+        // { from: "./src/css/*" },
       ],
     }),
   ],

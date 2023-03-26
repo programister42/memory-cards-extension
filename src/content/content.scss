@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800&display=swap");
+
+@font-face {
+  font-family: "Material Symbols Rounded";
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/materialsymbolsrounded/v68/syl7-zNym6YjUruM-QrEh7-nyTnjDwKNJ_190FjpZIvDmUSVOK7BDB_Qb9vUdV6_gjDK-P1Ju1_Zs-obHph2-jOcgjWPqw.woff2)
+    format("woff2");
+}
+
+.memory-cards-extension--revert {
+  all: revert;
+
+  * {
+    all: revert;
+  }
+}
+
+.memory-cards-extension {
+  $primary-color: #0f2000;
+  $surface-color: #c9ee9e;
+  $elevation-1: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  $elevation-2: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  $animation-duration: 0.2s ease-in-out 0s;
+
+  display: none;
+  position: absolute;
+  z-index: 9999999;
+  height: 40px;
+  background: $surface-color;
+  padding-inline: 16px;
+  line-height: 40px;
+  border-radius: 20px;
+  color: $primary-color;
+  user-select: none;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  align-items: center;
+  gap: 8px;
+  /* Shadow 1dp */
+  box-shadow: $elevation-1;
+  transition: box-shadow $animation-duration;
+
+  &:hover {
+    box-shadow: $elevation-2;
+  }
+
+  &.memory-cards-extension--visible {
+    display: flex;
+  }
+
+  .material-symbols-rounded {
+    font-family: "Material Symbols Rounded";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .memory-cards-extension__text-container {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+
+    .memory-cards-extension__text,
+    .memory-cards-extension__translation {
+      position: absolute;
+      mask-image: linear-gradient(
+        to right,
+        rgb(0, 0, 0) 55%,
+        rgba(0, 0, 0, 0.1)
+      );
+      //noinspection CssInvalidPropertyValue
+      -webkit-mask-image: linear-gradient(
+        to right,
+        rgb(0, 0, 0) 55%,
+        rgba(0, 0, 0, 0.1)
+      );
+      opacity: 1;
+      top: 0;
+      left: 0;
+      transition: all $animation-duration;
+
+      &.memory-cards-extension__translation {
+        top: -100%;
+        opacity: 0;
+      }
+
+      &.memory-cards-extension__translation.change {
+        top: 0;
+        opacity: 1;
+      }
+
+      &.memory-cards-extension__text.change {
+        top: 100%;
+        opacity: 0;
+      }
+    }
+  }
+}

@@ -20,6 +20,8 @@
     "128": "./src/icons/get_started128.png"
   },
   "permissions": ["storage", "activeTab", "scripting", "identity"],
+  "host_permissions": ["https://translate.google.com/"],
+  "optional_host_permissions": ["*://*/*"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
